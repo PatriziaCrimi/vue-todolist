@@ -35,9 +35,6 @@ let app = new Vue({
       },
     ],
     new_todo_item: '',
-    /*
-    index_text: null,
-    */
   },  // Closing "data"
   methods: {
     addTodo: function() {
@@ -46,19 +43,22 @@ let app = new Vue({
       };
       this.todo_list.push(new_todo);
       // Output in console
-      /*
-      console.log('The updated to-do list containing the new to-do item is: ' , this.todo_list);
-      */
       console.log(
       `
       The new to-do item is: "${this.new_todo_item}".
       `);
+      console.log('\n The updated to-do list containing the new to-do item is: \n\n');
+      this.todo_list.forEach((item) => {
+        console.log(`       ${item.todo_item}`);
+      });
     },
-    /*
     removeTodo: function(index_todo) {
       this.todo_list.splice(index_todo, 1);
       // Output in console
-      console.log('The updated to-do list without the removed to-do item is: ' , this.todo_list , '\n\n');
+      console.log('\n The updated to-do list without the removed to-do item is: \n\n');
+      this.todo_list.forEach((item) => {
+        console.log(`       ${item.todo_item}`);
+      });
     },
     addTodoEnter: function() {
       if(event.key === 'Enter') {
@@ -70,7 +70,6 @@ let app = new Vue({
         // Adding new to-do item
         this.addTodo();
       }
-
     },
     /*
     strikethroughText: function(index_todo) {

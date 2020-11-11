@@ -21,8 +21,7 @@
           <div class="row">
             <div class="col-12">
               <h2>Add a new to-do item</h2>
-              <input v-model="new_todo_item" type="text" name="" placeholder="Enter here the new to-do">
-              <!-- @keyup="addTodoEnter" -->
+              <input v-model="new_todo_item" @keyup="addTodoEnter" type="text" name="" placeholder="Enter here the new to-do">
               <button @click="addTodo" type="button" name="button">Add</button>
             </div>
           </div>
@@ -30,11 +29,16 @@
             <div class="col-12">
               <ul id="to-do-list">
                 <li v-for="(to_do, index) in todo_list">
-                  <span>{{to_do.todo_item}}</span>
-                <!--   <span @click="removeTodo(index)" :class="index === index_text ? 'strikethrough' : null" >{{to_do}}</span>
+                  <span @click="removeTodo(index)">{{to_do.todo_item}}</span>
+                <!--<span :class="index === index_text ? 'strikethrough' : null" ></span>
                   <i @click="strikethroughText(index)" class="fas fa-check"></i>-->
                 </li>
               </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div id="console">
+              <p>Check in Console</p>
             </div>
           </div>
         </div>  <!-- Closing container -->

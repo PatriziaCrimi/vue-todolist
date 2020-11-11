@@ -106,6 +106,37 @@ ul#to-do-list > li > i {
   cursor: pointer;
 }
 
+#console > p {
+  font-size: 30px;
+  font-weight: 700;
+  padding: 30px 0;
+}
+
+#console > p::before {
+  content: '\f101';
+  margin-right: 20px;
+}
+
+#console > p::after {
+  content: '\f100';
+  margin-left: 20px;
+}
+
+#console > p::before,
+#console > p::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 700;
+  font-size: 30px;
+}
+
+#console > p:hover,
+#console > p:hover::before,
+#console > p:hover::after {
+  color: #612626;
+  text-shadow: 1px 1px #F2F2F2;
+  cursor: pointer;
+}
+
 /* ------------------- MEDIA QUERY ------------------- */
 
 /* Breakpoint Small 576px sm */
