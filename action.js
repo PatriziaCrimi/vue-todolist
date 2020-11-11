@@ -21,6 +21,7 @@ let app = new Vue({
       'Walking the Camino de Santiago',
     ],
     new_todo: '',
+    text_decoration: '',
   },  // Closing "data"
   methods: {
     addTodo: function() {
@@ -47,6 +48,10 @@ let app = new Vue({
         // Adding new to-do item
         this.addTodo();
       }
+    },
+    strikethroughText: function(index_todo) {
+      this.text_decoration = 'strikethrough';
+      console.log('clicked');
     },
   },  // Closing "methods"
 });

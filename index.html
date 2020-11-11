@@ -21,14 +21,17 @@
           <div class="row">
             <div class="col-12">
               <h2>Add a new to-do item</h2>
-              <input v-model="new_todo" @keyup="addTodoEnter" type="text" name="" value="" placeholder="Enter here the new to-do">
+              <input v-model="new_todo" @keyup="addTodoEnter" type="text" name="new_todo" placeholder="Enter here the new to-do">
               <button @click="addTodo" type="button" name="button">Add</button>
             </div>
           </div>
           <div class="row">
             <div class="col-12">
               <ul id="to-do-list">
-                <li v-for="(to_do, index) in todo_list" @click="removeTodo(index)">{{to_do}}</li>
+                <li v-for="(to_do, index) in todo_list">
+                  <span @click="removeTodo(index)" :class="text_decoration" >{{to_do}}</span>
+                  <i @click="strikethroughText(index)" class="fas fa-check"></i>
+                </li>
               </ul>
             </div>
           </div>

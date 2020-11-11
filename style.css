@@ -1,4 +1,4 @@
-/* Coomon features */
+/* Common features */
 
 * {
   margin: 0;
@@ -16,19 +16,45 @@ h1 {
   letter-spacing: 1.5px;
   padding: 60px 0;
   font-size: 40px;
+  text-shadow: 4px 4px #F2F2F2;
+}
+
+h2 {
+  margin-bottom: 25px;
+  text-shadow: 1px 1px #F2F2F2;
+}
+
+ul {
+  list-style: none;
 }
 
 li {
-  list-style: none;
   padding: 10px 0;
   font-size: 20px;
   font-weight: 600;
 }
 
+input, button {
+  border-radius: 8px;
+  border: 2px solid rgba(93,68,68,1);
+  padding: 10px 17px;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+button {
+  background-color: #E6E6E6;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
 #page-wrapper {
   width: 100%;
   height: 100vh;
-  background-color: lightgrey;
+  background: rgb(230,230,230);
+  background: linear-gradient(180deg, rgba(230,230,230,1) 0%, rgba(189,182,182,1) 65%, rgba(148,133,133,1) 99%, rgba(93,68,68,1) 100%);
 }
 
 .container {
@@ -40,15 +66,20 @@ li {
   padding: 20px 0;
 }
 
+.strikethrough {
+  text-decoration: line-through;
+  text-decoration-color: #612626;
+}
+
 /* Sections */
 
 h1::before {
-  content: '\f2b9';
+  content: '\f46d';
   margin-right: 50px;
 }
 
 h1::after {
-  content: '\f46d';
+  content: '\f46c';
   margin-left: 50px;
 }
 
@@ -57,8 +88,23 @@ h1::after {
   font-family: "Font Awesome 5 Free";
   font-weight: 700;
   font-size: 40px;
+  color: #612626;
 }
 
+button:hover {
+  background-color: rgba(97, 38, 38, 0.7);
+  color: #FAFAFA;
+}
+
+ul#to-do-list > li > span {
+  cursor: crosshair;
+}
+
+ul#to-do-list > li > i {
+  color: #612626;
+  margin-left: 20px;
+  cursor: pointer;
+}
 
 /* ------------------- MEDIA QUERY ------------------- */
 
