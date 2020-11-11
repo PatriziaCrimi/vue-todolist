@@ -26,8 +26,16 @@ let app = new Vue({
     addTodo: function() {
       this.todo_list.push(this.new_todo);
       // Output in console
-      console.log('The updated to-do list is: ' , this.todo_list);
-      console.log(`The new to-do item is: "${this.new_todo}".`);
-    }
+      console.log('The updated to-do list with the new to-do item is: ' , this.todo_list);
+      console.log(
+      `
+      The new to-do item is: "${this.new_todo}".
+      `);
+    },
+    removeTodo: function(index_todo) {
+      this.todo_list.splice(index_todo, 1);
+      // Output in console
+      console.log('The updated to-do list without the removed to-do item is: ' , this.todo_list , '\n\n');
+    },
   },  // Closing "methods"
 });

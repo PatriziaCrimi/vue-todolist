@@ -28,7 +28,7 @@
           <div class="row">
             <div class="col-12">
               <ul id="to-do-list">
-                <li v-for="to_do in todo_list">{{to_do}}</li>
+                <li v-for="(to_do, index) in todo_list" @click="removeTodo(index)">{{to_do}}</li>
               </ul>
             </div>
           </div>
