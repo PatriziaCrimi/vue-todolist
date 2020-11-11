@@ -12,28 +12,49 @@ let app = new Vue({
   el: '#root',
   data: {
     todo_list: [
-      'Climbing Mount Everest',
-      'Road tripping in the U.S.',
-      'Swimming in bioluminescence in the Pacific Ocean',
-      'Camping in the Desert',
-      'Visiting Nepal',
-      'Seeing the Pyramids of Egypt',
-      'Walking the Camino de Santiago',
+      {
+        todo_item: 'Climbing Mount Everest',
+      },
+      {
+        todo_item: 'Road tripping in the U.S.',
+      },
+      {
+        todo_item: 'Swimming in bioluminescence in the Pacific Ocean',
+      },
+      {
+        todo_item: 'Camping in the Desert',
+      },
+      {
+        todo_item: 'Visiting Nepal',
+      },
+      {
+        todo_item: 'Seeing the Pyramids of Egypt',
+      },
+      {
+        todo_item: 'Walking the Camino de Santiago',
+      },
     ],
-    new_todo: '',
-    index_text: 0,
-    text_decoration: '',
+    new_todo_item: '',
+    /*
+    index_text: null,
+    */
   },  // Closing "data"
   methods: {
     addTodo: function() {
-      this.todo_list.push(this.new_todo);
+      let new_todo = {
+        todo_item: this.new_todo_item,
+      };
+      this.todo_list.push(new_todo);
       // Output in console
-      console.log('The updated to-do list with containing the new to-do item is: ' , this.todo_list);
+      /*
+      console.log('The updated to-do list containing the new to-do item is: ' , this.todo_list);
+      */
       console.log(
       `
-      The new to-do item is: "${this.new_todo}".
+      The new to-do item is: "${this.new_todo_item}".
       `);
     },
+    /*
     removeTodo: function(index_todo) {
       this.todo_list.splice(index_todo, 1);
       // Output in console
@@ -49,12 +70,13 @@ let app = new Vue({
         // Adding new to-do item
         this.addTodo();
       }
+
     },
-    strikethroughText: function(todo_item, index_todo) {
+    /*
+    strikethroughText: function(index_todo) {
       // If the <span> containing the to-do item has the same index as the checked icon that is clicked, then the "strikethrough" class should be added ONLY to that <span> element
-      if (this.todo_list.indexOf(todo_item) === index_todo) {
-        this.text_decoration = 'strikethrough';
-      }
+      this.index_text = index_todo;
     },
+    */
   },  // Closing "methods"
 });
