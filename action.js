@@ -26,7 +26,7 @@ let app = new Vue({
     addTodo: function() {
       this.todo_list.push(this.new_todo);
       // Output in console
-      console.log('The updated to-do list with the new to-do item is: ' , this.todo_list);
+      console.log('The updated to-do list with containing the new to-do item is: ' , this.todo_list);
       console.log(
       `
       The new to-do item is: "${this.new_todo}".
@@ -36,6 +36,17 @@ let app = new Vue({
       this.todo_list.splice(index_todo, 1);
       // Output in console
       console.log('The updated to-do list without the removed to-do item is: ' , this.todo_list , '\n\n');
+    },
+    addTodoEnter: function() {
+      if(event.key === 'Enter') {
+        // Print in console which key you pressed
+        console.log(
+        `
+        You pressed the ${event.key} key.
+        `);
+        // Adding new to-do item
+        this.addTodo();
+      }
     },
   },  // Closing "methods"
 });

@@ -20,8 +20,8 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <h2>Add a new to-do</h2>
-              <input v-model="new_todo" type="text" name="" value="" placeholder="Enter here the new to-do">
+              <h2>Add a new to-do item</h2>
+              <input v-model="new_todo" @keyup="addTodoEnter" type="text" name="" value="" placeholder="Enter here the new to-do">
               <button @click="addTodo" type="button" name="button">Add</button>
             </div>
           </div>
