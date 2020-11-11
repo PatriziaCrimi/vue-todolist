@@ -13,43 +13,54 @@ let app = new Vue({
   data: {
     todo_list: [
       {
-        todo_item: 'Climbing Mount Everest',
+        description: 'Climbing Mount Everest',
+        text_decoration: '',
       },
       {
-        todo_item: 'Road tripping in the U.S.',
+        description: 'Skydiving in New Zealand',
+        text_decoration: '',
       },
       {
-        todo_item: 'Swimming in bioluminescence in the Pacific Ocean',
+        description: 'Road tripping the U.S.A.',
+        text_decoration: '',
       },
       {
-        todo_item: 'Camping in the Desert',
+        description: 'Swimming in bioluminescence in the Pacific Ocean',
+        text_decoration: '',
       },
       {
-        todo_item: 'Visiting Nepal',
+        description: 'Camping in the Desert',
+        text_decoration: '',
       },
       {
-        todo_item: 'Seeing the Pyramids of Egypt',
+        description: 'Visiting Nepal',
+        text_decoration: '',
       },
       {
-        todo_item: 'Walking the Camino de Santiago',
+        description: 'Seeing the Pyramids of Egypt',
+        text_decoration: '',
+      },
+      {
+        description: 'Walking the Camino de Santiago',
+        text_decoration: '',
       },
     ],
-    new_todo_item: '',
+    new_todo_description: '',
   },  // Closing "data"
   methods: {
     addTodo: function() {
       let new_todo = {
-        todo_item: this.new_todo_item,
+        description: this.new_todo_description,
       };
       this.todo_list.push(new_todo);
       // Output in console
       console.log(
       `
-      The new to-do item is: "${this.new_todo_item}".
+      The new to-do item is: "${this.new_todo_description}".
       `);
       console.log('\n The updated to-do list containing the new to-do item is: \n\n');
       this.todo_list.forEach((item) => {
-        console.log(`       ${item.todo_item}`);
+        console.log(`       ${item.description}`);
       });
     },
     removeTodo: function(index_todo) {
@@ -57,7 +68,7 @@ let app = new Vue({
       // Output in console
       console.log('\n The updated to-do list without the removed to-do item is: \n\n');
       this.todo_list.forEach((item) => {
-        console.log(`       ${item.todo_item}`);
+        console.log(`       ${item.description}`);
       });
     },
     addTodoEnter: function() {
@@ -71,11 +82,8 @@ let app = new Vue({
         this.addTodo();
       }
     },
-    /*
     strikethroughText: function(index_todo) {
-      // If the <span> containing the to-do item has the same index as the checked icon that is clicked, then the "strikethrough" class should be added ONLY to that <span> element
-      this.index_text = index_todo;
+      this.todo_list[index_todo].text_decoration = 'strikethrough';
     },
-    */
   },  // Closing "methods"
 });
