@@ -21,6 +21,7 @@ let app = new Vue({
       'Walking the Camino de Santiago',
     ],
     new_todo: '',
+    index_text: 0,
     text_decoration: '',
   },  // Closing "data"
   methods: {
@@ -49,9 +50,11 @@ let app = new Vue({
         this.addTodo();
       }
     },
-    strikethroughText: function(index_todo) {
-      this.text_decoration = 'strikethrough';
-      console.log('clicked');
+    strikethroughText: function(todo_item, index_todo) {
+      // If the <span> containing the to-do item has the same index as the checked icon that is clicked, then the "strikethrough" class should be added ONLY to that <span> element
+      if (this.todo_list.indexOf(todo_item) === index_todo) {
+        this.text_decoration = 'strikethrough';
+      }
     },
   },  // Closing "methods"
 });

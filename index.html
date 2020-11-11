@@ -30,7 +30,7 @@
               <ul id="to-do-list">
                 <li v-for="(to_do, index) in todo_list">
                   <span @click="removeTodo(index)" :class="text_decoration" >{{to_do}}</span>
-                  <i @click="strikethroughText(index)" class="fas fa-check"></i>
+                  <i @click="strikethroughText(to_do, index)" class="fas fa-check"></i>
                 </li>
               </ul>
             </div>
