@@ -14,35 +14,43 @@ let app = new Vue({
     todo_list: [
       {
         description: 'Climbing Mount Everest',
-        text_decoration: '',
+        date: '12/11/2020',
+        checked: '',
       },
       {
         description: 'Skydiving in New Zealand',
-        text_decoration: '',
+        date: '12/11/2020',
+        checked: '',
       },
       {
         description: 'Road tripping the U.S.A.',
-        text_decoration: '',
+        date: '12/11/2020',
+        checked: '',
       },
       {
         description: 'Swimming in bioluminescence in the Pacific Ocean',
-        text_decoration: '',
+        date: '12/11/2020',
+        checked: '',
       },
       {
         description: 'Camping in the Desert',
-        text_decoration: '',
+        date: '12/11/2020',
+        checked: '',
       },
       {
         description: 'Visiting Nepal',
-        text_decoration: '',
+        date: '12/11/2020',
+        checked: '',
       },
       {
         description: 'Seeing the Pyramids of Egypt',
-        text_decoration: '',
+        date: '12/11/2020',
+        checked: '',
       },
       {
         description: 'Walking the Camino de Santiago',
-        text_decoration: '',
+        date: '12/11/2020',
+        checked: '',
       },
     ],
     new_todo_description: '',
@@ -51,8 +59,12 @@ let app = new Vue({
     addTodo: function() {
       let new_todo = {
         description: this.new_todo_description,
+        date: '12/11/2020',
+        checked: '',
       };
       this.todo_list.push(new_todo);
+      // Removing text from the input tag
+      this.new_todo_description = '',
       // Output in console
       console.log(
       `
@@ -71,19 +83,8 @@ let app = new Vue({
         console.log(`       ${item.description}`);
       });
     },
-    addTodoEnter: function() {
-      if(event.key === 'Enter') {
-        // Print in console which key you pressed
-        console.log(
-        `
-        You pressed the ${event.key} key.
-        `);
-        // Adding new to-do item
-        this.addTodo();
-      }
-    },
     strikethroughText: function(index_todo) {
-      this.todo_list[index_todo].text_decoration = 'strikethrough';
+      this.todo_list[index_todo].checked = 'strikethrough';
     },
   },  // Closing "methods"
 });

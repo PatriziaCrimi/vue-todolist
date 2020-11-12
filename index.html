@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -21,7 +21,7 @@
           <div class="row">
             <div class="col-12">
               <h2>Add a new to-do item</h2>
-              <input v-model="new_todo_description" @keyup="addTodoEnter" type="text" name="" placeholder="Enter here the new to-do">
+              <input v-model="new_todo_description" @keyup.enter="addTodo" type="text" placeholder="Enter here the new to-do">
               <button @click="addTodo" type="button" name="button">Add</button>
             </div>
           </div>
@@ -38,7 +38,9 @@
             <div class="col-12">
               <ul id="to-do-list">
                 <li v-for="(to_do, index) in todo_list">
-                  <span @click="removeTodo(index)" :class="to_do.text_decoration">{{to_do.description}}</span>
+                  <span @click="removeTodo(index)" :class="to_do.checked">{{to_do.description}}
+                    <small> - {{to_do.date}}</small>
+                  </span>
                   <i @click="strikethroughText(index)" class="fas fa-check"></i>
                 </li>
               </ul>
