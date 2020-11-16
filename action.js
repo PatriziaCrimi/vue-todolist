@@ -14,37 +14,37 @@ let app = new Vue({
     todo_list: [
       {
         description: 'Climbing Mount Everest',
-        date: '12/11/2020',
+        date: '05/01/2009',
         checked: '',
       },
       {
         description: 'Skydiving in New Zealand',
-        date: '12/11/2020',
+        date: '09/10/2010',
         checked: '',
       },
       {
         description: 'Road tripping the U.S.A.',
-        date: '12/11/2020',
+        date: '05/12/2014',
         checked: '',
       },
       {
         description: 'Swimming in bioluminescence in the Pacific Ocean',
-        date: '12/11/2020',
+        date: '27/09/2015',
         checked: '',
       },
       {
         description: 'Camping in the Desert',
-        date: '12/11/2020',
+        date: '28/08/2017',
         checked: '',
       },
       {
         description: 'Visiting Nepal',
-        date: '12/11/2020',
+        date: '07/03/2018',
         checked: '',
       },
       {
         description: 'Seeing the Pyramids of Egypt',
-        date: '12/11/2020',
+        date: '04/07/2019',
         checked: '',
       },
       {
@@ -56,10 +56,20 @@ let app = new Vue({
     new_todo_description: '',
   },  // Closing "data"
   methods: {
+    newDateFormat: function() {
+      // Getting current date in YYYY-MM-DD format
+      let new_date = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+      // Slicing the string of the date
+      let new_year = new_date.slice(0, 4);
+      let new_month = new_date.slice(5, 7);
+      let new_day = new_date.slice(8, 10);
+      // Creating the current date in DD-MM-YYYY format
+      return new_date = new_day + '/' + new_month + '/' + new_year
+    },
     addTodo: function() {
       let new_todo = {
         description: this.new_todo_description,
-        date: '12/11/2020',
+        date: this.newDateFormat(),
         checked: '',
       };
       this.todo_list.push(new_todo);
@@ -84,7 +94,11 @@ let app = new Vue({
       });
     },
     strikethroughText: function(index_todo) {
-      this.todo_list[index_todo].checked = 'strikethrough';
+      if(this.todo_list[index_todo].checked === 'strikethrough') {
+        this.todo_list[index_todo].checked = '';
+      } else {
+        this.todo_list[index_todo].checked = 'strikethrough';
+      }
     },
   },  // Closing "methods"
 });
